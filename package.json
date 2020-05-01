@@ -13,7 +13,9 @@
     "prebuild": "npm run clean && npm run lint && mkdir dist",
     "pretest": "npm run build",
     "prepublishOnly": "npm run build",
-    "postpublish": "npm publish --ignore-scripts --@github:registry='https://npm.pkg.github.com'"
+    "postpublish": "npm publish --ignore-scripts --@github:registry='https://npm.pkg.github.com'",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "dist"
@@ -41,5 +43,9 @@
   },
   "eslintIgnore": [
     "dist/"
-  ]
+  ],
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.316.1"
+  }
 }
